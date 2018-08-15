@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">2016.08.20</span><br />
+				<span class="comments">箭扣</span><br />
+				<span class="comments">在北京最险峻美丽的长城上, 我们度过了相识的第一天</span><br />
+				<span class="comments">2016.09.10</span><br />				
+				<span class="comments">景山公园, 小西天的电影资料馆</span><br />
+				<span class="comments">我们第一次约会的地点</span><br />
+				<span class="comments">2016.12.10</span><br />
+				<span class="comments">西二旗智学苑</span><br />
+				<span class="comments">我们在一起的第一天</span><br />
+				<span class="comments">然后故事慢慢展开</span><br />
+				<span class="comments">彼岸, 南山滑雪场, 保利剧院, 库布齐沙漠, 中轴线</span><br />
+				<span class="comments">我们一起看电影, 逛书店, 徒步, 爬山, 买菜做饭...</span><br />
+				<span class="comments">幸运遇见彼此</span><br />
+				<span class="comments">前路漫漫</span><br />
+				<span class="comments">我们一起去探索发现</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						这是我们认识的第<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						得一人心, 白首不离.<br/>
+						<div class="signature"> Chenxi & Xikun</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			Inspired by <a href="https://github.com/hackerzhou/Love">OurLoveStory</a> project.<br />
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2016, 7, 20);
+		together.setHours(12);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
